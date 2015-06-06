@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<!-- Theme by pierdtimp.ro http://www.pierdtimp.ro -->
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="<{$xoops_imageurl}>pngfix.js"></script>
+<![endif]-->
+<script type="text/javascript">
+
+function toggle(rightcolumn) 
+{
+obj=document.getElementById(rightcolumn);
+obj.style.display=!(obj.style.display=="none")? "none" : "block";  
+}
+
+function swapimage(swap)
+{
+img_plus="<{$xoops_imageurl}>images/plus.gif";
+img_minus="<{$xoops_imageurl}>images/minus.gif";
+obj=document.getElementById(swap);
+obj.src=!(obj.src==img_minus)? img_minus : img_plus;  
+}
+
+</script>
+</head>
+<body>
+<br />
+<table class="toptable" cellspacing="0">
+    <tr>
+  <td> <a href="<{$xoops_url}>/"> <img src="<{$xoops_imageurl}>images/sports.png" width="300" height="250" alt="" /> </a> </td>
+  <td id="headerbanner">
+<div style="position: absolute; top: 60px; right: 60px; z-index: 0)">
+<img src="<{$xoops_imageurl}>images/baschet.png" width="105" height="260" alt="" /> 
+</div>
+<div class="title"><a href="<{$xoops_url}>/"><{$xoops_sitename}></a></div>
+<br /><div class="page"><{$xoops_pagetitle}></div>
+<div style="position: absolute; top: 245px; right: 155px; z-index: 0)">
+<form style="margin-top: 0px;" action="<{$xoops_url}>/search.php" method="get">
+<input type="text" name="query" size="35" />
+<input type="hidden" name="action" value="results" />&nbsp;<input type="submit" value="Search&nbsp;" />
+</form>
+ </div>
+<div style="position: absolute; top: 250px; right: 65px; z-index: 0)">
+<img id="swap" src="<{$xoops_imageurl}>images/minus.gif" onClick="toggle('rightcolumn');swapimage('swap');" /></div>
+</td>
+    </tr>
+  </table>
+
+  <table class="maintable" cellspacing="0">
+    <tr>
+      <td id="leftcolumn">
+        <!-- Start left blocks loop -->
+        <{foreach item=block from=$xoops_lblocks}>
+          <{include file="sports_k/theme_blockleft.html"}>
+        <{/foreach}>
+        <!-- End left blocks loop -->
+        <!-- Start right blocks loop -->
+        <{foreach item=block from=$xoops_rblocks}>
+          <{include file="sports_k/theme_blockright.html"}>
+        <{/foreach}>
+        <!-- End right blocks loop -->
+      </td>
+
+      <td id="centercolumn">
+      <br />
+<center>
+<{$xoops_banner}>
+</center>
+<br />
+  <!-- Display center blocks if any -->
+        <{if $xoops_showcblock == 1}>
+        <table cellspacing="0">
+		<tr>
+			<td id="centerCcolumn" colspan="2">
+			<!-- Start center-center blocks loop -->
+			<{foreach item=block from=$xoops_ccblocks}>
+				<{include file="sports_k/theme_blockcenter_c.html"}>
+			<{/foreach}>
+			<!-- End center-center blocks loop -->
+			</td>
+		</tr>
+		<tr>
+			<td id="centerLcolumn">		
+			<!-- Start center-left blocks loop -->
+			<{foreach item=block from=$xoops_clblocks}>
+				<{include file="sports_k/theme_blockcenter_l.html"}>
+			<{/foreach}>
+			<!-- End center-left blocks loop -->
+			</td>
+			<td id="centerRcolumn">		
+			<!-- Start center-right blocks loop -->
+			<{foreach item=block from=$xoops_crblocks}>
+				<{include file="sports_k/theme_blockcenter_r.html"}>
+			<{/foreach}>
+			<!-- End center-right blocks loop -->
+			</td>
+		</tr>
+        </table>
+        <{/if}>
+        <!-- End display center blocks -->
+        <div id="content">
+          <{$xoops_contents}>
+        </div>
+        <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+        <table cellspacing="0">
+        <{if $xoBlocks.page_bottomcenter}>
+		<tr><td id="bottomCcolumn" colspan="2">
+			<{foreach from=$xoBlocks.page_bottomcenter item=block}><{include file="sports_k/theme_blockcenter_c.html"}><{/foreach}>
+			</td>
+		</tr>
+		<{/if}>
+		<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+		<tr>
+			<td id="bottomLcolumn">
+				<{foreach from=$xoBlocks.page_bottomleft item=block}><{include file="sports_k/theme_blockcenter_l.html"}><{/foreach}>
+			</td>
+			<td id="bottomRcolumn">
+				<{foreach from=$xoBlocks.page_bottomright item=block}><{include file="sports_k/theme_blockcenter_r.html"}><{/foreach}>
+			</td>
+		</tr>
+        <{/if}>
+        </table>
+        <{/if}>
+      </td>
+      <td id="rightcolumn">
+<div style="position: absolute; top: 300px; right: 70px; z-index: 0;)">
+<br /><a href="<{$xoops_url}>/"><img src="<{$xoops_imageurl}>images/home.gif" width="107" height="109" alt="" /></a>
+<br /><a href="#"><img src="<{$xoops_imageurl}>images/news.gif" width="107" height="109" alt="" /></a>
+<br /><a href="#"><img src="<{$xoops_imageurl}>images/forum.gif" width="107" height="109" alt="" /></a>
+<br /><a href="#"><img src="<{$xoops_imageurl}>images/links.gif" width="107" height="109" alt="" /></a>
+<br />
+ </div>
+     </td>
+    </tr>
+  </table>
+
+  		<table class="footertable" cellspacing="0">
+    		<tr>
+          		<td id="footerbar">
+	<center>Theme design by aph3x@ <a href="http://www.pierdtimp.ro">pierdtimp.ro</a></center>
+				</td>
+    		</tr>
+  		</table>
+<br />
+</body>
+</html>
